@@ -1,0 +1,27 @@
+<% include ./partials/header %>
+
+<h1>How should you spend your date nights?</h1>
+
+<div class="ui main text container segment">
+    <div class="ui huge header">What activities do you enjoy?</div>
+    <form class="ui form" action="/people" method="POST">
+        <div class="field"><label>First Name</label><input type="text" name="person[firstname]" placeholder="First Name"></div>
+        <div class="field"><label>Last Name</label><input type="text" name="person[lastname]" placeholder="Last Name"></div>
+        
+        
+    <% activities.forEach(function(activity){ %>
+        <div class="field"><label><%= activity %></label><input type="number" name="answers[<%= activity %>]"></div>
+    <% }); %>
+
+        
+        
+        <div class="field"><input class="ui violet big basic button" type="submit"></div>
+    </form>
+</div>
+
+
+
+
+
+
+<% include ./partials/footer %>
