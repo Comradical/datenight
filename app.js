@@ -28,7 +28,7 @@ app.get("/", function(req, res){
 });
 
 app.get("/results", function(req, res){
-    Person.find({'firstname': 'Barrak'}, function(err, person){
+    Person.findOne({'firstname': 'Barrak'}, function(err, person){
          if(err){
             console.log(err);
         } else {
@@ -36,7 +36,6 @@ app.get("/results", function(req, res){
             res.render("results", {activities: activities, person: person});
         }
     });
-    
 });
 
 //Create Blog Post route

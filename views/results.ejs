@@ -1,7 +1,7 @@
 <% include ./partials/header %>
 
 <div class="ui main text container segment">
-     <div class="ui huge header">Hey <%= person[0] %> <%= person.lastname %>, Here's how you ranked your activities!</div>
+     <div class="ui huge header">Hey <%= person.firstname %> <%= person.lastname %>, Here's how you ranked your activities!</div>
      <% activities.forEach(function(activity){ %>
         <div class="field"><label><%= activity %></label><input type="number" name="answers[<%= activity %>]"></div>
     <% }); %>
@@ -9,8 +9,6 @@
 
 
 </div>
-
-
 
 
 <% include ./partials/footer %>
