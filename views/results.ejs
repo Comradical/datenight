@@ -2,12 +2,10 @@
 
 <div class="ui main text container segment">
      <div class="ui huge header">Hey <%= person.firstname %> <%= person.lastname %>, Here's how you ranked your activities!</div>
+     
      <% activities.forEach(function(activity){ %>
-        <div class="field"><label><%= activity %></label><input type="number" name="answers[<%= activity %>]"></div>
-    <% }); %>
-
-
-
+        <div class="field"><label class="ui teal tag label"><%= activity %></label><span> You said it was <%= person.answers[activity] %>.    -    And <%= personTwo.firstname %> said it was a <%= personTwo.answers[activity]%></span></div>
+     <% }); %>
 </div>
 
 

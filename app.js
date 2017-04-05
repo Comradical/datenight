@@ -1,7 +1,10 @@
 var bodyParser  = require("body-parser"),
 express         = require("express"),
 mongoose        = require("mongoose"),
-app             = express();
+app             = express(),
+homeHook        = require("./hooks/home-hook.js"),
+resultHook      = require("./hooks/result-hook.js"),
+peopleHook      = require("./hooks/people-hook.js");
 
 //APP config
 mongoose.connect("mongodb://localhost/datenight");
@@ -10,58 +13,55 @@ app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended: true}));
 
 //Mongoose / Model Config
-var personSchema = new mongoose.Schema({
-    firstname: String,
-    lastname: String,
-    answers: Object,
-    created: {type: Date, default: Date.now}
-});
+// var personSchema = new mongoose.Schema({
+//     firstname: String,
+//     lastname: String,
+//     compare: String,
+//     answers: Object,
+//     created: {type: Date, default: Date.now}
+// });
 
-var Person = mongoose.model("Person", personSchema);
+// var Person = mongoose.model("Person", personSchema);
 
 var activities = ["Painting", "Tennis", "Volleyball", "Broadway", "Hiking", "Swimming" ];
 
 //Home Page
+app.get("/", homeHook);
 
-app.get("/", function(req, res){
-  res.render("home", {activities: activities});
-});
-
-app.get("/results", function(req, res){
-    Person.findOne({'firstname': 'Barrak'}, function(err, person){
-         if(err){
-            console.log(err);
-        } else {
-            console.log(person);
-            res.render("results", {activities: activities, person: person});
-        }
-    });
-});
+//Results Page
+app.get("/results/:id", resultHook);
 
 //Create Blog Post route
 
-app.post("/people", function(req, res){
-    var answersVar = {};
-    // for(i = 0; i < 5; i++){
-    //     answersVar[i] = {req.body.answers}
-    // }
-    
-    Person.create({
-        firstname: req.body.person.firstname,
-        lastname: req.body.person.lastname,
-        answers: answersVar,
+app.post("/people", peopleHook);
+
+// function(req, res){
+//     var finalAnswers = {};
+//     var answers = req.body.answers;
+//     var x;
+//         for (x in answers) {
+//              if (answers.hasOwnProperty(x)) {
+//         // do stuff
+//         finalAnswers[x] = parseInt(answers[x])
         
-    }, function(err, newPerson){
-        if(err){
-            console.log(err);
-            console.log("ERROR " + req.body.person.firstname);
-            res.render("/");
-        } else {
-            console.log("Added new Answers! " + req.body.answers);
-            res.redirect("/");
-        }
-    });
-});
+//             }
+//         }
+    
+//     Person.create({
+//         firstname: req.body.person.firstname,
+//         lastname: req.body.person.lastname,
+//         compare: req.body.person.compare,
+//         answers: finalAnswers,
+        
+//     }, function(err, newPerson){
+//         if(err){
+//             console.log(err);
+//             res.render("/");
+//         } else {
+//             res.redirect("/results/"+newPerson._id);
+//         }
+//     });
+// };
 
 
 

@@ -9,8 +9,11 @@
     "express": "^4.15.2",
     "mongoose": "^4.9.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "nodemon": "^1.11.0"
+  },
   "scripts": {
+    "dev":"nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Brian Austgen",
