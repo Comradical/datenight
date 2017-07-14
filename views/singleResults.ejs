@@ -1,0 +1,16 @@
+<% include ./partials/header %>
+
+<h1>Single Results</h1>
+
+<div class="ui main text container segment">
+     <div class="ui huge header">Hey <%= person.firstname %> <%= person.lastname %>, Here's how you ranked your activities!</div>
+     
+     <% activities.forEach(function(activity){ %>
+        <div class="field"><label class="ui teal tag label"><%= activity %></label><span> You said it was <%= person.answers[activity] %>.</span></div>
+     <% }); %>
+     <h2>Send this link to your friend to compare results</h2>
+     <input id="copyTarget" value="https://datenight-linguistic151.c9users.io/?compare=<%= person._id %>"><br> <button id="copyButton">Copy Link</button>
+</div>
+
+<script src="../scripts/copyMessage.js"></script>
+<% include ./partials/footer %>
