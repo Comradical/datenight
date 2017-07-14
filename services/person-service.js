@@ -7,16 +7,18 @@ function findById(id, callback) {
             callback(err,null)
         } else {
             var idToCompare = mainPerson.compare;
-            Person.findById(idToCompare, function(err, secondPerson){
-             if(err){
-                 console.log(err);
-             } else {
-                 console.log(mainPerson);
-                 console.log(secondPerson);
-                 callback(null, mainPerson, secondPerson)
-                  
-             }
-            });
+            if(idToCompare){
+                Person.findById(idToCompare, function(err, secondPerson){
+                 if(err){
+                     console.log(err);
+                 } else {
+                     callback(null, mainPerson, secondPerson)
+                      
+                 }
+                });
+            } else{
+                callback(null, mainPerson)
+            }
         }
     });
 };
@@ -40,5 +42,5 @@ function createPerson(person, finalAnswers, callback) {
 
 module.exports = {
     findById: findById,
-    createPerson: createPerson
+    createPerson: createPerson,
 }

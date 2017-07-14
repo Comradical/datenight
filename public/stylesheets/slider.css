@@ -1,0 +1,102 @@
+div.slider {
+  border-bottom: solid 1px 	#D3D3D3;
+  margin-bottom: 15px;
+}
+label.slider {
+float:left;
+width:20%;
+font-size:.75em;
+text-align: center;
+}
+
+label.activity {
+  border: solid 1px #d3d3d3;
+  padding: 3px;
+  margin: 5px;
+}
+
+input[type=range].slider {
+  -webkit-appearance: none;
+  width: 100%;
+  padding: 25px 9%;
+}
+input[type=range].slider:focus {
+  outline: none;
+}
+input[type=range].slider::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 1.5px;
+  cursor: pointer;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  background: rgba(68, 77, 94, 0.67);
+  border-radius: 3.4px;
+  border: 0px solid #010101;
+}
+input[type=range].slider::-webkit-slider-thumb {
+  box-shadow: 1px 1px 5.5px #650000, 0px 0px 1px #7f0000;
+  border: 0px solid #cc40a1;
+  height: 33px;
+  width: 20px;
+  border-radius: 7px;
+  background: #df5868;
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -15.75px;
+}
+input[type=range].slider:focus::-webkit-slider-runnable-track {
+  background: rgba(79, 89, 109, 0.67);
+}
+input[type=range].slider::-moz-range-track {
+  width: 100%;
+  height: 1.5px;
+  cursor: pointer;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  background: rgba(68, 77, 94, 0.67);
+  border-radius: 3.4px;
+  border: 0px solid #010101;
+}
+input[type=range].slider::-moz-range-thumb {
+  box-shadow: 1px 1px 5.5px #650000, 0px 0px 1px #7f0000;
+  border: 0px solid #cc40a1;
+  height: 33px;
+  width: 20px;
+  border-radius: 7px;
+  background: #df5868;
+  cursor: pointer;
+}
+input[type=range].slider::-ms-track {
+  width: 100%;
+  height: 1.5px;
+  cursor: pointer;
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+input[type=range].slider::-ms-fill-lower {
+  background: rgba(57, 65, 79, 0.67);
+  border: 0px solid #010101;
+  border-radius: 6.8px;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+}
+input[type=range].slider::-ms-fill-upper {
+  background: rgba(68, 77, 94, 0.67);
+  border: 0px solid #010101;
+  border-radius: 6.8px;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+}
+input[type=range].slider::-ms-thumb {
+  box-shadow: 1px 1px 5.5px #650000, 0px 0px 1px #7f0000;
+  border: 0px solid #cc40a1;
+  height: 33px;
+  width: 20px;
+  border-radius: 7px;
+  background: #df5868;
+  cursor: pointer;
+  height: 1.5px;
+}
+input[type=range].slider:focus::-ms-fill-lower {
+  background: rgba(68, 77, 94, 0.67);
+}
+input[type=range].slider:focus::-ms-fill-upper {
+  background: rgba(79, 89, 109, 0.67);
+}
