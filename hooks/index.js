@@ -21,7 +21,7 @@ router.post("/login", passport.authenticate("local",
 //Register Routes
 router.get("/register", function(req, res){
     res.render("register");
-})
+});
 
 router.post("/register", function(req, res){
     var newUser = new Person({username: req.body.username});
@@ -31,19 +31,12 @@ router.post("/register", function(req, res){
            return res.render("register");
        } 
        passport.authenticate("local")(req, res, function(){
-           res.redirect("/")
+           res.redirect("/");
        });
     });
-})
+});
 
 
 
-//middleware
-function isLoggedIn(req, res, next){
-    if(req.isAuthenticated()){
-        return next();
-    }
-    res.redirect("/login");
-}
 
 module.exports = router;

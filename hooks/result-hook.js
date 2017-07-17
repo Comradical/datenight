@@ -1,7 +1,9 @@
+var express     = require("express");
+var router      = express.Router();
 var personService   = require("../services/person-service.js");
 var activities = ["Painting", "Tennis", "Volleyball", "Broadway", "Hiking", "Swimming" ];
     
-module.exports = function(req, res){
+router.get("/results/:id", function(req, res){
     personService.findById(req.params.id, function(err, mainPerson, secondPerson){
         if(err){
             console.log(err);
@@ -12,4 +14,8 @@ module.exports = function(req, res){
         }
         
     });
-};
+});
+
+
+module.exports = router;
+

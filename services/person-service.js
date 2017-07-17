@@ -7,7 +7,7 @@ function findById(id, callback) {
             callback(err,null)
         } else {
             var idToCompare = mainPerson.compare;
-            if(idToCompare){
+            if(idToCompare != "undefined"){
                 Person.findById(idToCompare, function(err, secondPerson){
                  if(err){
                      console.log(err);

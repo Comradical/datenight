@@ -1,7 +1,8 @@
+var express     = require("express");
+var router      = express.Router();
 var personService   = require("../services/person-service.js");
 
-
-module.exports = function(req, res){
+router.post("/people", function(req, res){
     
     var finalAnswers = {};
     var answers = req.body.answers;
@@ -21,4 +22,6 @@ module.exports = function(req, res){
             res.redirect("/results/"+success._id);
         });
         
-};
+});
+
+module.exports = router;

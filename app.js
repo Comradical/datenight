@@ -41,18 +41,18 @@ app.use(function(req, res, next){
 });
 
 //Home Page
-app.get("/", homeHook);
+app.use(homeHook);
 //Results Page
-app.get("/results/:id", resultHook);
+app.use(resultHook);
 //Create Blog Post route
-app.post("/people", peopleHook);
+app.use(peopleHook);
 //Auth and other Routes
 app.use(indexRoutes);
 
 
 
 //Serve the app on Cloud 9 Port 
-//https://datenight-linguistic151.c9users.io/?compare=58d1949c66d4480ca936fed7
+//https://datenight-linguistic151.c9users.io/?compare=596998bef04f410d9ee13fe5
 app.listen(process.env.PORT, process.env.IP, function(){
     console.log("Your Datenight has commenced!");
 });
