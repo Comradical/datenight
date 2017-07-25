@@ -3,6 +3,9 @@
 <h1>This is Register</h1>
 
 <form action="/register" method="POST">
+    <div class="field center"><label>First Name</label><input type="text" name="user[firstname]" placeholder="First Name"></div>
+    <div class="field center"><label>Last Name</label><input type="text" name="user[lastname]" placeholder="Last Name"></div>
+    <div class="field center"><label>Email</label><input type="text" name="user[email]" placeholder="Email Address"></div>
     <input type="text" name="username" placeholder="username">
     <input type="password" name="password" placeholder="password">
     <input type="submit" value="register">

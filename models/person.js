@@ -7,6 +7,7 @@ var personSchema = new Schema({
     password: String,
     firstname: String,
     lastname: String,
+    email: String,
     compare: String,
     answers: Object,
     created: {type: Date, default: Date.now}
