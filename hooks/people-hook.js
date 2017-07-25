@@ -1,7 +1,8 @@
-var personService   = require("../services/person-service.js");
+var express         = require("express"),
+    router          = express.Router(),
+    personService   = require("../services/person-service.js");
 
-
-module.exports = function(req, res){
+router.put("/people", isLoggedIn, function(req, res){
     
     var finalAnswers = {};
     var answers = req.body.answers;
@@ -14,11 +15,23 @@ module.exports = function(req, res){
         
             }
         }
-        personService.createPerson(req.body.person, finalAnswers, function(err, success){
+        
+        personService.updateUser(req.user._id, finalAnswers, function(err, success){
             if(err) {
             console.log(err);
             }
+            console.log(success);
             res.redirect("/results/"+success._id);
         });
         
-};
+});
+
+
+function isLoggedIn(req, res, next){
+    if(req.isAuthenticated()){
+        return next();
+    }
+    res.redirect("/login");
+}
+
+module.exports = router;
